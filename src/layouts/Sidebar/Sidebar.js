@@ -6,12 +6,11 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
+import Navbar from '../Navbar';
 
 const Nav = styled.div`
   background: #15171c;
   height: 80px;
-  display: flex;
-  justify-content: flex-start;
   align-items: center;
 `;
 
@@ -22,6 +21,11 @@ const NavIcon = styled(Link)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+`;
+
+const NavbarStyled = styled(Navbar)`
+display: flex;
+justify-content: flex-start;
 `;
 
 const SidebarNav = styled.nav`
@@ -49,10 +53,11 @@ const Sidebar = () => {
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
-        <Nav>
+        <Nav className="d-flex justify-content-between">
           <NavIcon to='#'>
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
+          <NavbarStyled/>
         </Nav>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
